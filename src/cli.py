@@ -1,5 +1,6 @@
 """
 Command Line Interface for Calculator
+
 Example:
     python src/cli.py add 5 3
     python -m src.cli subtract 10 4
@@ -17,6 +18,7 @@ from src.calculator import add, subtract, multiply, divide, power, square_root
 def calculate(operation, num1, num2=None):
     """Simple calculator CLI supporting basic operations."""
     try:
+        # Handle all calculator operations
         if operation == "add":
             result = add(num1, num2)
         elif operation == "subtract":
@@ -33,7 +35,7 @@ def calculate(operation, num1, num2=None):
             click.echo(f"Unknown operation: {operation}")
             sys.exit(1)
 
-        # Format result nicely
+        # Format the result neatly
         if isinstance(result, (int, float)):
             if result == int(result):
                 click.echo(int(result))
