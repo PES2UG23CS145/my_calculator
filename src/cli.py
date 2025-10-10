@@ -8,7 +8,13 @@ Example:
 
 import sys
 import click
-from src.calculator import add, subtract, multiply, divide, power, square_root
+
+# ✅ Dual import support — works whether run as a module or directly
+try:
+    from src.calculator import add, subtract, multiply, divide, power, square_root
+except ModuleNotFoundError:
+    # Fallback when running as "python src/cli.py"
+    from calculator import add, subtract, multiply, divide, power, square_root
 
 
 @click.command()
@@ -18,7 +24,6 @@ from src.calculator import add, subtract, multiply, divide, power, square_root
 def calculate(operation, num1, num2=None):
     """Simple calculator CLI supporting basic operations."""
     try:
-        # Handle all calculator operations
         if operation == "add":
             result = add(num1, num2)
         elif operation == "subtract":
@@ -48,7 +53,6 @@ def calculate(operation, num1, num2=None):
         click.echo(f"Error: {e}")
         sys.exit(1)
     except Exception as e:
-        # Broad exception handler for unexpected runtime issues
         click.echo(f"Unexpected error: {e}")
         sys.exit(1)
 
