@@ -1,0 +1,9 @@
+************* Module src.calculator
+src\calculator.py:82:1: W0511: TODO: Students will add multiply, divide, power, sqrt functions (fixme)
+************* Module src.cli
+src\cli.py:48:11: W0718: Catching too general exception Exception (broad-exception-caught)
+src\cli.py:17:0: R0912: Too many branches (13/12) (too-many-branches)
+
+------------------------------------------------------------------
+Your code has been rated at 9.62/10 (previous run: 9.62/10, +0.00)
+
